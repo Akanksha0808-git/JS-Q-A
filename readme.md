@@ -1,7 +1,8 @@
 # JS Interview Question and Ans
 
-## ***Day 1*** 
- ---
+<h1 align="center">Day 1</h1>
+ 
+
 ## Q1 Difference between “ == “ and “ === “ operators.
 ### Ans-
       1. The "==" operator performs type coercion,    which means it   tries to convert the operands to a common type before making the comparison. For example, if you compare a string and a number using "==" like "10" == 10, it will try to convert the string to a number and then compare the values. In this case, it would return true because the string "10" can be converted to the number 10.
@@ -49,7 +50,7 @@
     }
 
 ## Q4. What is a Temporal Dead Zone (TDZ)?
-    - when trying to acceess a variable before it's decleration with let and const keyword it throws a reference Error.
+    - when trying to acceess a variable before it's declaration with let and const keyword it throws a reference Error.
     - introduce to imporve the code quality by detecting & preventing to use variable.
 ## Q5. What is meant by first class functions?
     1. Assign a function to a variable is first class function.
@@ -59,6 +60,7 @@
     3. passed as arguments to other functions, and returned as values from other functions.
 --- 
 ## Q6 . Pure Function - 
+### Ans-
     A pure function in JavaScript is a function that returns the same result if the same arguments(input) are passed in the function.
 
     Example----
@@ -70,9 +72,9 @@
     Sum(20, 20)
     Sum(20, 30)
 ---
-
-## ***Day 2*** 
+<h1 align="center">Day 2</h1>
 ---
+
 ## Q7- What is execution context?
 ### Ans- 
 For Synchronous JS
@@ -156,3 +158,118 @@ Example:
      console.log(0 / 0); // Output: NaN
 ---
 
+<h1 align="center">Day 3</h1>
+
+
+## Q15- What are promises and why do we need them?
+### Ans- 
+    - Promise are use to handle async operation in JS. easy to handle callback hell, also use to handle the error.
+    - basically in promise there are Three stages
+  
+    1. Pending-The initial state when the asynchronous operation is still ongoing and the final value is not available yet.
+     2. Resolve - (.then method)The state when the asynchronous operation has completed successfully, and the promise has a resulting value.
+     3. reject - (.catch mentod)The state when the asynchronous operation has failed, and the promise has a reason for the failure.
+    - initial stage of any promise is always pending.
+ Promises provide several benefits:
+
+    1.Asynchronous control flow-avoiding deeply nested callback functions known as "callback hell." Promises chain together using methods like .then() and .catch(), making it easier to reason about the flow of asynchronous operations.
+    2.Error handling-.catch() handler to a promise to handle any errors 
+    3.Composition-.then() handler allows you to perform a series of asynchronous tasks sequentially 
+    4.Synchronization-synchronize multiple asynchronous operations using `Promise.all()` 
+
+## Q16 - We have three promise, and we want to combine all then and catch method by using Promise.all.
+### Ans-
+    const promise1= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+    resolve(" promise 1 resolve")
+    },2000)
+    })
+    const promise2= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+    resolve("Promise2 resolve")
+    },1000)
+    })
+    const promise3= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+    resolve("Promise3 resolve")
+    },1500)
+    })
+    Promise.all ([promise1,promise2,promise3])
+    .then((result)=>{
+    console.group("All promises done")
+    })
+
+## Q17- What is promise chaining?
+    - Its a technique to chain multiple asynchronous operation together using promises.
+    - Promise chaining is a technique in JavaScript to execute multiple asynchronous operations in a specific order by chaining promises together using the then method
+    - Multiple .then method.
+  Example-
+    
+    function delay(ms) {
+    return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+    });
+    }
+
+    delay(1000)
+    .then(() => {
+    console.log('First step completed');
+    return delay(2000);
+    })
+    .then(() => {
+    console.log('Second step completed');
+    return delay(3000);
+    })
+   .then(() => {
+    console.log('Third step completed');
+    })
+   .catch((error) => {
+    console.error('An error occurred:', error);
+    });
+
+  
+## Q18 -DOM - Document Object Model
+### Ans-
+    - Document object model. basically it is javascript mechanism by which we can change the document structure, style, and content.
+    - DOM is the data representation of the objects that comprise the structure and content of a document on the web.
+    - Different method in DOM
+      - Id - getElementById - return unique value
+      - querySelector -       return unique value    
+      - Class - getElementsByClassName 
+      - tag Name - getElementsByTagName
+      - querySelectorAll 
+
+    - addEventListener - (event, callback function)
+
+## Q19- Closure -
+### Ans- 
+    - A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+    - Closure is the combination of two function (min).
+    - inner function is able to excess the outer function variable but vise-varsa not possible.
+    - outer func and inner func is going to create a Lixical environment.
+
+## Q20- How many operators do we have in JS ?
+### Ans- 
+    1. Arithemic operator
+       1. Add, Sub, Multi, Div(/), Module (%), Expontial (**), increment ++, decrement--
+    2. Assignment Operator
+       1. Assign (=), Add Assign (+=), Sub Assign (-=), (*=), (/=), (%=)
+    3. Bitwise Operator
+       1. Bitwise OR (|), Bitwise AND (&), Bitwise NOT (~), Left shift (<<), right shift(>>)
+    4. Comparision Operator
+       1. equal (==), strict equal (===), Not equal (!=), Strict Not equal (!==), greate than, less than, greate than equal, less than equal
+    5. Logical Operator
+       1. AND (&&)
+       2. OR (||)
+       3. Not (!)
+    6. Ternary Operator
+       1. (Condition) ? "Execute True Condition" : "Execute False Condition"
+    7. typeof Operator
+       1. return datatype
+
+## Q21- What are objects in javascript?
+### Ans-
+    - Non-premitive data type
+    - store date in the form of Key-Value pair saparated by colon.
+    - Key - Properties : Value 
+  
